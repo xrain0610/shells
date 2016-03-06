@@ -1,0 +1,12 @@
+#!/bin/sh
+#before use,please check your .ssh folder , it must have id_rsa key pair.
+if [ -z "$1" ]; then
+echo "Usage: nopass user@domain"
+else
+while read pubkey  
+do  
+key=$pubkey 
+done < ~/.ssh/id_rsa.pub
+command="mkdir ~/.ssh;echo $key >> ~/.ssh/authorized_keys;chmod 640 ~/.ssh/authorized_keys;chmod 740 ~/.ssh"
+ssh $1 "$command"
+fi

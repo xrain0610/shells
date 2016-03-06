@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh root@cn.simcu.com -p 65534

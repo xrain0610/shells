@@ -1,0 +1,3 @@
+#!/bin/bash
+echo 'export DOCKER_TLS_VERIFY=1;'
+echo 'export DOCKER_HOST="tcp://'$1':65535";'

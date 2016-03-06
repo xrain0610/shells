@@ -1,0 +1,4 @@
+#!/bin/sh
+#can ssh root@hosts.
+ssh root@$1
+

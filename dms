@@ -1,0 +1,3 @@
+#!/bin/sh
+#can ssh root@hosts.
+docker-machine ssh $1

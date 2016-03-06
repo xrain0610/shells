@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -i ~/Documents/Certs/login-certs/$1.pem ubuntu@$1

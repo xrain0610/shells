@@ -1,0 +1,8 @@
+#/bin/sh
+if [ -z "$1" ]; then
+echo "Usage: $0 [domainname]"
+else
+certgen $1
+rsync -ave ssh ~/.docker/$1/ root@$1:~/.docker/
+ssh root@$1 "echo 'DOCKER_OPTS=\"--tlsverify -H=unix:///var/run/docker.sock -H=0.0.0.0:65535 --tlscacert=/root/.docker/ca.pem --tlscert=/root/.docker/cert.pem --tlskey=/root/.docker/key.pem --registry-mirror=https://q1iq1clk.mirror.aliyuncs.com\"' > /etc/default/docker && service docker restart"
+fi
